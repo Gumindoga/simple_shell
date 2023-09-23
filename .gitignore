@@ -1,0 +1,6 @@
+.vscode
+test/
+TEST_SUITE
+allowed_functions
+runchecker.bash
+test_res    
