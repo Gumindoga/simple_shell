@@ -47,7 +47,7 @@ ops_data *expand_logical_ops(char *cmd, ops_data *data)
 char *expand_var(char *line, sh_metadata *data)
 {
 	char num[10] = {'\0'};
-	char *alias;
+	char *l;
 	char var_buf[MAX_TOKENS] = {'\0'};
 	int cIdx = 0, nIdx = 0, i, j, env_found;
 
@@ -68,12 +68,12 @@ char *expand_var(char *line, sh_metadata *data)
 			env_found = 0;
 			for (i = 1; *(line + i) && *(line + i) != ' ' && *(line + i) != '$'; i++)
 			{
-				var_buf[i - 1] = *(line + i), var_buf[i] = '\0', alias = _get_environ(var_buf);
-				if (alias)
+				var_buf[i - 1] = *(line + i), var_buf[i] = '\0', l = _get_environ(var_buf);
+				if (l)
 				{
 					env_found = 1;
-					for (j = 0; alias[j]; j++, cIdx++)
-						data->cmdlinebuf[cIdx] = alias[j];
+					for (j = 0; l[j]; j++, cIdx++)
+						data->cmdlinebuf[cIdx] = l[j];
 					break;
 				}
 			}
