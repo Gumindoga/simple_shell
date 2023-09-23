@@ -13,7 +13,7 @@
 #include <errno.h>
 #include <signal.h>
 
-#include "shell_macros.h"
+#include "macro.h"
 
 extern char **environ;
 extern int errno;
